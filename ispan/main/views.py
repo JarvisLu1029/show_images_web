@@ -12,6 +12,10 @@ def index(request):
 @csrf_exempt  
 def screenshot_images(request):
     if request.method == 'GET':
+        if not os.path.exists('static/images'):
+            os.mkdir('static/images')
+            os.mkdir('static/images/screenshot')
+
         directory = f'static/images/screenshot/'
         image_list = os.listdir(directory)
 
