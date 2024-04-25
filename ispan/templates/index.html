@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basic Screenshot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .canvas-container {
+            position: relative;
+            width: 596px;
+            height: 842px;
+            border: 2px solid #ccc;
+            margin-left: 30px;
+        }
+
+        #my_canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #displayedImage {
+            max-width: 100%;
+            /* 使圖片的最大寬度為容器的寬度 */
+            max-height: 100%;
+            /* 使圖片的最大高度為容器的高度 */
+        }
+
+        #displayedImage[src=""] {
+            display: none;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    {% load static %}
+
+    <div id="controls" style="position: relative; left: 100px; width: 400px; padding: 10px;">
+        <span id="currentPages">目前頁數： 0</span>
+        <span id="totalPages" style="padding-right: 20px;">／總頁數：0</span> <!-- 新增的元素 -->
+        <input type="number" id="pageInput" style="width: 50px;" placeholder="頁數">
+        <button id="confirmPage">確認</button>
+        <button id="prevPage">上一頁</button>
+        <button id="nextPage">下一頁</button>
+    </div>
+
+    <div class="canvas-container">
+        <img id="displayedImage" src="" alt="Uploaded Image">
+        <canvas id="my_canvas"></canvas>
+    </div>
+
+    <script src="{% static 'js/show_images.js' %}"></script>
+    
+</body>
+
+</html>
