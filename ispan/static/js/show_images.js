@@ -19,8 +19,8 @@ fetch('/images_path', {
             document.getElementById("totalPages").innerText = `/總頁數：${imageData.length}`;
             
             let displayedImage = document.getElementById('displayedImage');
-            displayedImage.src = `${data.images[0]}`;
-            currentPageIndex = 1;
+            displayedImage.src = `${data.images[data.images.length - 1]}`;
+            currentPageIndex = data.images.length - 1;
             document.getElementById("currentPages").innerText = `目前頁數：${currentPageIndex}`;
 
         }
