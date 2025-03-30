@@ -10,20 +10,20 @@ function updatePage(index) {
 
 fetch('/images_path', {
     method: 'GET',
-    })
+})
     .then(response => response.json())
     .then(data => {
-            // 儲存圖片資料為全局變數
-            imageData = data.images;
+        // 儲存圖片資料為全局變數
+        imageData = data.images;
 
-            document.getElementById("totalPages").innerText = `/總頁數：${imageData.length}`;
-            
-            let displayedImage = document.getElementById('displayedImage');
-            displayedImage.src = `${data.images[data.images.length - 1]}`;
-            currentPageIndex = data.images.length - 1;
-            document.getElementById("currentPages").innerText = `目前頁數：${currentPageIndex}`;
+        document.getElementById("totalPages").innerText = `/總頁數：${imageData.length}`;
 
-        }
+        let displayedImage = document.getElementById('displayedImage');
+        displayedImage.src = `${data.images[data.images.length - 1]}`;
+        currentPageIndex = data.images.length;
+        document.getElementById("currentPages").innerText = `目前頁數：${currentPageIndex}`;
+
+    }
     )
 
 // 添加上下頁和輸入頁數的事件
@@ -61,5 +61,5 @@ document.getElementById("confirmPage").addEventListener("click", () => {
 });
 
 function navigateToPage(pageNumber) {
-    updatePage(pageNumber-1);
+    updatePage(pageNumber - 1);
 }
